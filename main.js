@@ -41,12 +41,7 @@ class Manager{
     }
 
     askEmployeesToWork(office){
-        for (let employee of this.employees){
-            employee.work(office)
-
-        }
-
-
+        this.employees.forEach(e => e.work(office))
     }
 }
 
@@ -85,14 +80,9 @@ class Office{
     }
 
     startWorkDay(){
-        for (let manager of this.managers){
-            manager.askEmployeesToWork(this)
-        }
+         this.managers.forEach(m => m.askEmployeesToWork(this))
+        this.cleaners.forEach(c => c.clean())
 
-
-        for (let cleaner of this.cleaners){
-            cleaner.clean()
-        }
     }
 
 
